@@ -33,12 +33,13 @@ public class GuestBookController {
 
 		System.out.println(gList);
 
-		// modle → data 전송
+		// model → data 전송
 		model.addAttribute("GuestList", gList);
 
 		return "/addlist";
 	}
 
+	// http://localhost:8088/guestbook3/gbc/add?name=[]&password=[]&content=[]
 	// add
 	@RequestMapping(value = "/add", method = { RequestMethod.GET, RequestMethod.POST })
 	public String add(@RequestParam("name") String name, @RequestParam("password") String password,
@@ -62,6 +63,7 @@ public class GuestBookController {
 		return "/deleteForm";
 	}
 
+	// http://localhost:8088/guestbook3/gbc/delete?no=[]
 	// delete
 	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public String delete(@RequestParam("no") int no, @RequestParam("password") String password) {
