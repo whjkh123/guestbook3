@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,16 +42,30 @@ public class GuestBookController {
 
 	// http://localhost:8088/guestbook3/gbc/add?name=[]&password=[]&content=[]
 	// add
-	@RequestMapping(value = "/add", method = { RequestMethod.GET, RequestMethod.POST })
-	public String add(@RequestParam("name") String name, @RequestParam("password") String password,
-			@RequestParam("content") String content) {
-		System.out.println("add");
+	/*
+	 * @RequestMapping(value = "/add", method = { RequestMethod.GET,
+	 * RequestMethod.POST }) public String add(@RequestParam("name") String
+	 * name, @RequestParam("password") String password, @RequestParam("content")
+	 * String content) { System.out.println("add");
+	 * 
+	 * GuestBookVo gVo = new GuestBookVo(name, password, content);
+	 * System.out.println(gVo);
+	 * 
+	 * GuestBookDao gDao = new GuestBookDao(); gDao.dbIsrt(gVo);
+	 * 
+	 * return "redirect:/gbc/addList"; }
+	 */
 
-		GuestBookVo gVo = new GuestBookVo(name, password, content);
-		System.out.println(gVo);
+	// http://localhost:8088/guestbook3/gbc/add?name=[]&password=[]&content=[]
+	// add
+	@RequestMapping(value = "/add", method = { RequestMethod.GET, RequestMethod.POST })
+	public String add(@ModelAttribute GuestBookVo gVo) {
+		System.out.println("add");
 
 		GuestBookDao gDao = new GuestBookDao();
 		gDao.dbIsrt(gVo);
+
+		System.out.println(gVo);
 
 		return "redirect:/gbc/addList";
 	}
@@ -63,7 +78,7 @@ public class GuestBookController {
 		return "/deleteForm";
 	}
 
-	// http://localhost:8088/guestbook3/gbc/delete?no=[]
+	// http://localhost:8088/guestbook3/gbc/delete?no=[]&password=[]
 	// delete
 	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
 	public String delete(@RequestParam("no") int no, @RequestParam("password") String password) {
@@ -81,4 +96,26 @@ public class GuestBookController {
 			return "/pswError";
 		}
 	}
+
+	// http://localhost:8088/guestbook3/gbc/delete?no=[]&password=[]
+	// delete → 작동 안 됨
+	/*
+	 * @RequestMapping(value = "/delete/{no}/{password}", method = { RequestMethod.GET, RequestMethod.POST })
+	 * public String delete(@PathVariable("no") int no, @PathVariable("password") String password) {
+	 * 		System.out.println("delete");
+	 * 
+	 * 		GuestBookDao gDao = new GuestBookDao();
+	 * 		GuestBookVo gVo = new GuestBookVo(no, password);
+	 * 
+	 * 		int cnt = gDao.dbDle(gVo);
+	 * 
+	 * 		if (cnt == 1) {
+	 * 		return "redirect:/gbc/addList";
+	 * 		} else {
+	 * 		System.out.println("pswError");
+	 * 		return "/pswError";
+	 * 		}
+	 * }
+	 */
+
 }

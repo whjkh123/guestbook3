@@ -15,6 +15,10 @@
 	<br>
 
 	<a href="/guestbook3/gbc/dForm?no=${param.no }">뒤로가기</a>
+	
+	<br>
+	
+	<a href="/guestbook3/gbc/addList">메인으로 돌악가기</a>
 
 </body>
 </html>

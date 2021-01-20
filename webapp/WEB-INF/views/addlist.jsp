@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<form action="/guestbook3/gbc/add" method="get">
+	<form action="/guestbook3/gbc/add" method="post">
 
 		<table border="1">
 
@@ -48,6 +48,7 @@
 				<td>${gVo.name }</td>
 				<td>${gVo.reg_date }</td>
 				<td><a href="/guestbook3/gbc/dForm?no=${gVo.no }">삭제</a></td>
+				<%-- <td><a href="/guestbook3/gbc/dForm/${gVo.no }/${gVo.password}">삭제</a></td> --%>
 			</tr>
 
 			<tr>
