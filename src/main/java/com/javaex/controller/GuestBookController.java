@@ -43,17 +43,18 @@ public class GuestBookController {
 	// http://localhost:8088/guestbook3/gbc/add?name=[]&password=[]&content=[]
 	// add
 	/*
-	 * @RequestMapping(value = "/add", method = { RequestMethod.GET,
-	 * RequestMethod.POST }) public String add(@RequestParam("name") String
-	 * name, @RequestParam("password") String password, @RequestParam("content")
-	 * String content) { System.out.println("add");
+	 * @RequestMapping(value = "/add", method = { RequestMethod.GET, RequestMethod.POST })
+	 * public String add(@RequestParam("name") String name, @RequestParam("password") String password, @RequestParam("content") String content) {
+	 * 		System.out.println("add");
 	 * 
-	 * GuestBookVo gVo = new GuestBookVo(name, password, content);
-	 * System.out.println(gVo);
+	 * 		GuestBookVo gVo = new GuestBookVo(name, password, content);
+	 * 		System.out.println(gVo);
 	 * 
-	 * GuestBookDao gDao = new GuestBookDao(); gDao.dbIsrt(gVo);
+	 * 		GuestBookDao gDao = new GuestBookDao();
+	 * 		gDao.dbIsrt(gVo);
 	 * 
-	 * return "redirect:/gbc/addList"; }
+	 * 		return "redirect:/gbc/addList";
+	 * }
 	 */
 
 	// http://localhost:8088/guestbook3/gbc/add?name=[]&password=[]&content=[]
