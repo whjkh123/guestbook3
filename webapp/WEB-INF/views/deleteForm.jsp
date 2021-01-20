@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<form action="/guestbook3/gbc/delete" method="get">
+	<form action="/guestbook3/gbc/delete" method="post">
 
 		비밀번호: <input type="password" name="password">
 		<button type="submit">확인</button>
